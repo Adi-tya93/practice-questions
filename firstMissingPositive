@@ -1,0 +1,10 @@
+class Solution:
+    def firstMissingPositive(self, nums: List[int]) -> int:
+        setOfList = set(nums)
+        i = 1
+        while (i > 0):
+            if i in setOfList:
+                i += 1
+            else:
+                return i
+# O(2n) in worst case scenario 40% in time and 40 % in space complexity

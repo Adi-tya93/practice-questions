@@ -14,4 +14,4 @@ class Solution:
         print(distictWays)
         return int(distictWays)
         
-# Unique Solution not found on leet code took me longer than an hour to get
+# Unique solution, not on leet code, took me more than an hour to get, fatser than 85% of submissions
