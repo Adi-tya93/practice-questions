@@ -1,0 +1,52 @@
+<html>
+  <body>
+    <h3>Build a CaaS (Comedian as a service)</h3>
+    <p>There are many unfunny people in the world. Technology can save them.</p>
+    <p>
+      Your task is to extend the api at
+      <a href="https://sv443.net/jokeapi/v2/">https://sv443.net/jokeapi/v2/</a
+      >and let people use a simple query to get a joke on demand.
+    </p>
+    <p>
+      We're prioritizing a working solution over a robust solution in this
+      exercise. Feel free to implement an in-memory solution to caching if
+      necessary and continue with the problem.
+    </p>
+    <p>Here are some progression steps</p>
+    <ol>
+      <li>
+        Build a route that returns the joke id and joke, punchline included if
+        it's a two-parter. You can choose which jokes you want to filter out
+        from your system by checking the documentation.
+      </li>
+      <li>
+        Implement some kind of caching/memoization for specific origins - User A
+        doesn't want to be sent the same joke they've used before in a time of
+        need but User B might want to use that joke. Feel free to import another
+        package to help with this. Update the route from 1. such that if a joke
+        has been told to the user before, send them a new joke.
+      </li>
+      <li>
+        Users who use our service should be able to tell us how good a joke is.
+        Build a route that takes in a joke id and a rating from 1-5 as params.
+        The joke should be given that rating in your storage system. Assume only
+        existing joke ID's will be sent in via this route. Update your route
+        from part 1 to also send the rating for the joke, if it has one. If
+        multiple users rate a joke, the rating returned should ideally be the
+        average of all previous ratings.
+      </li>
+      <li>Any extra time should be put towards adding tests and debugging</li>
+    </ol>
+    <p>
+      To test, use curl in a new instance of the the built-in terminal below
+      with your route and params and view the terminal logs
+    </p>
+    <p>
+      ex:
+      <a href="https://74148.sse.codesandbox.io/ping"
+        >curl https://74148.sse.codesandbox.io/ping</a
+      >
+      will return {"ping":true}
+    </p>
+  </body>
+</html>
