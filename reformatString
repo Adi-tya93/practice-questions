@@ -1,0 +1,31 @@
+class Solution:
+    def reformat(self, s: str) -> str:
+        prev = 1
+        result=""
+        alphabets =""
+        numbers = ""
+        for element in s:
+            if (element in string. ascii_lowercase):
+                alphabets += element
+            else:
+                numbers += element
+        lenAlp=len(alphabets)
+        lenNum=len(numbers)
+        if((lenAlp-lenNum)==0):
+            for i in range(max(lenAlp,lenNum)):
+                    result+=alphabets[i]+numbers[i]
+            
+        if(abs(lenAlp-lenNum)==1):
+            for i in range(max(lenAlp,lenNum)-1):
+                if lenAlp>lenNum:
+                    result+=alphabets[i]+numbers[i]
+                else:
+                    result+=numbers[i]+alphabets[i]
+            if lenAlp>lenNum:
+                result+= alphabets[-1]
+            else:
+                result+= numbers[-1]
+                    
+            return result                             
+        else:
+            return result
