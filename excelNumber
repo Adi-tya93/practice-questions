@@ -1,0 +1,10 @@
+class Solution:
+    def titleToNumber(self, s: str) -> int:
+        value=0
+        i = len(s)-1
+        multiple = 1
+        while i>-1:
+            value+=multiple*(ord(s[i])-64)
+            multiple*=26
+            i-=1
+        return value

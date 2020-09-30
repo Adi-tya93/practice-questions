@@ -1,0 +1,40 @@
+class Solution:
+    def longestSubstring(self, s: str, k: int) -> int:
+        count = {}
+        for char in s:
+            if (len(count)==0):
+                count[char]= 1
+                continue
+            if (char in count):
+                count[char] += 1
+            else:
+                count[char] = 1
+        i=0
+        j=0
+        def validate(s):
+            count={}
+            for char in s:
+                if (len(count)==0):
+                    count[char]= 1
+                    continue
+                if (char in count):
+                    count[char] += 1
+                else:
+                    count[char] = 1
+            for char in s:
+                if (count[char]<k):
+                    return 0
+            return len(s)
+            
+        largest = 0
+        while(j<len(s)):
+            if(count[s[j]]>=k):
+                if(i!=j):
+                    largest = max(largest,validate(s[i:j]))
+                j+=1
+            else:
+                largest = max(largest,validate(s[i:j]))
+                i+=1
+                j=i
+        largest = max(largest,validate(s[i:j]))
+        return largest

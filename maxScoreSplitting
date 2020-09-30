@@ -1,0 +1,18 @@
+class Solution:
+    def maxScore(self, s: str) -> int:
+        count = {0:0,1:0}
+        for char in s:
+            if char == "1":
+                count[1]+=1
+            else:
+                count[0]+=1
+        left = 0
+        right = count[1]
+        score = 0
+        for i in range(len(s)-1):
+            if s[i]== "0":
+                left+=1
+            else:
+                right-=1
+            score=max(score,left+right)
+        return score
