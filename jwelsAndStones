@@ -1,0 +1,8 @@
+class Solution:
+    def numJewelsInStones(self, J: str, S: str) -> int:
+        jset= set(J)
+        output = 0
+        for char in S:
+            if char in jset:
+                output+=1
+        return output
