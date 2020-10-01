@@ -1,0 +1,34 @@
+class Solution:
+    def shortestCompletingWord(self, licensePlate: str, words: List[str]) -> str:
+        count ={}
+        compare={}
+        def counter(text):
+            counts={}
+            for char in text:
+                lower=char.lower()
+                if lower in string.ascii_lowercase:
+                    if lower in counts:
+                        counts[lower]+=1
+                    else:
+                        counts[lower]=1
+            return counts
+        count = counter(licensePlate)
+        def comparer(text1,text2):
+            for item in text1:
+                if item in text2:
+                    if text1[item]>text2[item]:
+                        return False
+                else:
+                    return False
+            return True
+        output=""
+        for word in words:
+            compare=counter(word)
+            if(comparer(count,compare)):
+                if output=="":
+                    output = word
+                else:
+                    if len(output)>len(word):
+                        output=word
+
+        return output

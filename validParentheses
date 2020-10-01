@@ -7,12 +7,14 @@ def isValid( s: str):
                     top_element = stack.pop()  
                 else:
                     top_element = "A"
-
-                if mapping[char] != top_element:
-                    return False
+                #closing parenthesis 
+                if char in mapping:
+                    if mapping[char] != top_element:
+                        return False
+                #opening parenthesis
                 else:
                     stack.append(char)
         return not stack
 
         
-print(isValid("{]}"))
+print(isValid("{}"))

@@ -1,0 +1,26 @@
+class Solution:
+    def mostVisited(self, n: int, rounds: List[int]) -> List[int]:
+        count= []
+        output=[]
+        for i in range(n):
+            count.insert(i,0)
+        j=0
+        for i in range(len(rounds)-1):
+            j=rounds[i]
+            while(j != rounds[i+1]):
+                count[j-1]+=1
+                j=(j+1)
+                if j==n+1:
+                    j=1
+        count[rounds[-1]-1]+=1
+        largest=0
+        for i in range(len(count)):
+            if count[i]>largest:
+                output=[]
+                output.append(i+1)
+                largest= count[i]
+                continue
+            if count[i]==largest:
+                output.append(i+1)
+        return output
+                
