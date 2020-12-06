@@ -1,0 +1,12 @@
+/**
+ * @param {string} str
+ * @return {string}
+ */
+var toLowerCase = function(str) {
+    for(const item in str){
+        if (str[item].charCodeAt() < 96 && str[item].charCodeAt() > 64){
+            str = str.replace(str[item], String.fromCharCode(str[item].charCodeAt() + 32))
+        }
+    }
+    return str
+};
